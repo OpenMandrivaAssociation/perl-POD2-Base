@@ -1,23 +1,23 @@
 %define upstream_name    POD2-Base
 %define upstream_version 0.043
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	3
 
-Summary:    No summary found
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/POD2/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	This module is an abstraction of the code in POD2::IT and POD2::FR
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/POD2/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(File::Spec)
-BuildRequires: perl(Test::More)
-BuildRequires: perl(strict)
-BuildRequires: perl(vars)
-BuildRequires: perl(warnings)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(File::Spec)
+BuildRequires:	perl(Test::More)
+BuildRequires:	perl(strict)
+BuildRequires:	perl(vars)
+BuildRequires:	perl(warnings)
+BuildArch:	noarch
 
 %description
 This module is an abstraction of the code in POD2::IT and POD2::FR. These
@@ -33,24 +33,26 @@ can be accessed with:
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 %make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc README Changes META.yml
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
 
+%changelog
+* Sat Apr 23 2011 Funda Wang <fwang@mandriva.org> 0.43.0-2mdv2011.0
++ Revision: 657808
+- rebuild for updated spec-helper
+
+* Sat Sep 18 2010 Shlomi Fish <shlomif@mandriva.org> 0.43.0-1mdv2011.0
++ Revision: 579593
+- import perl-POD2-Base
 
