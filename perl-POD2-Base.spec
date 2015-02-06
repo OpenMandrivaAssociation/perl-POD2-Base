@@ -3,7 +3,7 @@
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Release:	5
 
 Summary:	This module is an abstraction of the code in POD2::IT and POD2::FR
 License:	GPL+ or Artistic
