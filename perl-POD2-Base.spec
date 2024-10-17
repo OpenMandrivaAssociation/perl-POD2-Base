@@ -8,7 +8,7 @@ Release:	5
 Summary:	This module is an abstraction of the code in POD2::IT and POD2::FR
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{upstream_name}
+Url:		https://search.cpan.org/dist/%{upstream_name}
 Source0:	http://www.cpan.org/modules/by-module/POD2/%{upstream_name}-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
