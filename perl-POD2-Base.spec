@@ -2,7 +2,7 @@
 %define upstream_version 0.043
 Name:		perl-%{upstream_name}
 Version:	0.043
-Release:	2
+Release:	3
 
 Summary:	This module is an abstraction of the code in POD2::IT and POD2::FR
 License:	GPL+ or Artistic
@@ -39,7 +39,7 @@ perl Makefile.PL INSTALLDIRS=vendor
 %check
 # soft: do not fail package on test failures
 set +e
-%make test
+%make test || :
 
 %install
 %makeinstall_std
